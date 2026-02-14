@@ -1,0 +1,6 @@
+- name: Automated Docker & NGINX Setup
+  hosts: web
+  become: yes
+  roles:
+    - docker
+    - nginx
