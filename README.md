@@ -14,23 +14,30 @@ roles, inventory, variables, templates, and handlers.
 
 ## Project Structure
 .
+
+├── LICENSE
+├── README.md
 ├── ansible.cfg
 ├── group_vars
-│   └── web.yml
+│   └── web.yml
 ├── inventory
-│   └── hosts
+│   └── hosts
 ├── roles
-│   ├── docker
-│   │   └── tasks
-│   │       └── main.yml
-│   └── nginx
-│       ├── handlers
-│       │   └── main.yml
-│       ├── tasks
-│       │   └── main.yml
-│       └── templates
-│           └── nginx.conf.j2
+│   ├── docker
+│   │   └── tasks
+│   │       └── main.yml
+│   └── nginx
+│       ├── handlers
+│       │   └── main.yml
+│       ├── tasks
+│       │   └── main.yml
+│       └── templates
+│           └── nginx.conf.j2
+├── screenshots
+│   ├── ansible-automation-architecture.drawio
+│   └── ansible-automation-architecture.png
 └── site.yml
+
 
 ## Prerequisites
 - Linux system (Ubuntu recommended)
@@ -45,6 +52,16 @@ roles, inventory, variables, templates, and handlers.
 
 2. Run the Ansible playbook
    ansible-playbook site.yml --ask-become-pass
+
+##  Architecture Diagram
+
+![Ansible Role-Based Automation Architecture]
+(ansible-automation-architecture.png)
+
+This diagram shows the complete automation flow:
+- Developer runs the Ansible playbook
+- Ansible Control Node uses inventory to target hosts
+- Docker and NGINX are configured using role-based automation
 
 ## Verification
 
