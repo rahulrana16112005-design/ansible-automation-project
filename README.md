@@ -18,13 +18,12 @@ This is a practical DevOps automation project, not a theoretical or tutorial-onl
 ---
 
 ## Tools & Technologies Used
-- Ansible
-- Docker
-- NGINX
-- Ubuntu Linux
-- YAML
 
----
+Ansible
+Docker
+NGINX
+Ubuntu Linux
+YAML
 
 ## Project Structure
 
@@ -52,14 +51,12 @@ This is a practical DevOps automation project, not a theoretical or tutorial-onl
 │   ├── ansible-automation-architecture.drawio
 │   └── ansible-automation-architecture.png
 
-
 ## Prerequisites
 - Linux system (Ubuntu recommended)
 - Ansible installed
 - Sudo access
 - Internet connectivity
 
----
 
 ## Inventory Configuration
 The project uses Ansible inventory for host targeting.
