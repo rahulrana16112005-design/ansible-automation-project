@@ -27,32 +27,31 @@ This is a practical DevOps automation project, not a theoretical or tutorial-onl
 ---
 
 ## Project Structure
+
 .
 ├── LICENSE
 ├── README.md
 ├── ansible.cfg
 ├── site.yml
 ├── inventory
-│ └── hosts
+│   └── hosts
 ├── group_vars
-│ └── web.yml
+│   └── web.yml
 ├── roles
-│ ├── docker
-│ │ └── tasks
-│ │ └── main.yml
-│ └── nginx
-│ ├── tasks
-│ │ └── main.yml
-│ ├── handlers
-│ │ └── main.yml
-│ └── templates
-│ └── nginx.conf.j2
+│   ├── docker
+│   │   └── tasks
+│   │       └── main.yml
+│   └── nginx
+│       ├── tasks
+│       │   └── main.yml
+│       ├── handlers
+│       │   └── main.yml
+│       └── templates
+│           └── nginx.conf.j2
 ├── screenshots
-│ ├── ansible-automation-architecture.drawio
-│ └── ansible-automation-architecture.png
+│   ├── ansible-automation-architecture.drawio
+│   └── ansible-automation-architecture.png
 
-
----
 
 ## Prerequisites
 - Linux system (Ubuntu recommended)
