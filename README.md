@@ -1,43 +1,58 @@
-# Ansible Automation Project - Docker and NGINX
+# Ansible Automation Project – Docker & NGINX
 
 ## Overview
-This project automates the installation and configuration of Docker and NGINX
-on Linux systems using Ansible. It demonstrates real DevOps automation using
-roles, inventory, variables, templates, and handlers.
+This project demonstrates real-world infrastructure automation using Ansible.
+It automates the installation and configuration of Docker and NGINX on Linux systems
+using role-based Ansible architecture.
 
-## Tools and Technologies
+The project follows production-style best practices such as:
+- Role separation
+- Inventory-based targeting
+- Variable management
+- Jinja2 templating
+- Handler-driven service restarts
+- Idempotent execution
+
+This is a practical DevOps automation project, not a theoretical or tutorial-only example.
+
+---
+
+## Tools & Technologies Used
 - Ansible
 - Docker
 - NGINX
 - Ubuntu Linux
 - YAML
 
+---
+
 ## Project Structure
 .
-
 ├── LICENSE
 ├── README.md
 ├── ansible.cfg
-├── group_vars
-│   └── web.yml
+├── site.yml
 ├── inventory
-│   └── hosts
+│ └── hosts
+├── group_vars
+│ └── web.yml
 ├── roles
-│   ├── docker
-│   │   └── tasks
-│   │       └── main.yml
-│   └── nginx
-│       ├── handlers
-│       │   └── main.yml
-│       ├── tasks
-│       │   └── main.yml
-│       └── templates
-│           └── nginx.conf.j2
+│ ├── docker
+│ │ └── tasks
+│ │ └── main.yml
+│ └── nginx
+│ ├── tasks
+│ │ └── main.yml
+│ ├── handlers
+│ │ └── main.yml
+│ └── templates
+│ └── nginx.conf.j2
 ├── screenshots
-│   ├── ansible-automation-architecture.drawio
-│   └── ansible-automation-architecture.png
-└── site.yml
+│ ├── ansible-automation-architecture.drawio
+│ └── ansible-automation-architecture.png
 
+
+---
 
 ## Prerequisites
 - Linux system (Ubuntu recommended)
@@ -45,48 +60,100 @@ roles, inventory, variables, templates, and handlers.
 - Sudo access
 - Internet connectivity
 
+---
+
+## Inventory Configuration
+The project uses Ansible inventory for host targeting.
+
+[web]
+localhost ansible_connection=local
+
+
+---
+
 ## How to Run the Project
 
-1. Navigate to the project directory
-   cd ansible-automation-project
+1. Clone the repository
+git clone https://github.com/rahulrana16112005-design/ansible-automation-project.git
+cd ansible-automation-project
 
-2. Run the Ansible playbook
-   ansible-playbook site.yml --ask-become-pass
 
-##  Architecture Diagram
+2. Execute the Ansible playbook
+ansible-playbook site.yml --ask-become-pass
 
-![Ansible Role-Based Automation Architecture]
-(ansible-automation-architecture.png)
 
-This diagram shows the complete automation flow:
+---
+
+## Architecture Diagram
+screenshots/ansible-automation-architecture.png
+
+
+### Automation Flow Explanation
 - Developer runs the Ansible playbook
-- Ansible Control Node uses inventory to target hosts
-- Docker and NGINX are configured using role-based automation
+- Ansible control node reads inventory and variables
+- Docker role installs and configures Docker
+- NGINX role installs NGINX
+- NGINX configuration is applied using Jinja2 templates
+- Handlers restart NGINX only when configuration changes
+- Services reach the desired state idempotently
 
-## Verification
+---
 
-Check Docker:
+## Verification Steps
+
+### Verify Docker Installation
 docker --version
+docker info
 
-Check NGINX:
+
+### Verify NGINX Service
 systemctl status nginx
 
-Open in browser:
+
+### Application Access
 http://localhost
+
+
+---
+
+## Idempotency Validation
+Run the playbook multiple times:
+ansible-playbook site.yml
+ansible-playbook site.yml
+
+
+Expected result:
+- First run applies changes
+- Subsequent runs show no changes
+
+This confirms idempotent infrastructure automation.
+
+---
 
 ## What This Project Demonstrates
 - Infrastructure automation using Ansible
 - Role-based configuration management
+- Separation of concerns using Ansible roles
+- Template-driven configuration using Jinja2
+- Handler-based service restarts
 - Idempotent playbook execution
-- Template-driven NGINX configuration
-- Handler-based service restart
-- Real-world DevOps troubleshooting
+- Real-world DevOps automation practices
+
+---
 
 ## Interview Explanation
-This project automates Docker and NGINX setup using Ansible roles. It runs on
-real Linux systems and demonstrates practical DevOps automation instead of
-theoretical examples.
+This project automates Docker and NGINX setup using Ansible roles.
+It uses inventory-based host targeting, Jinja2 templates for configuration management,
+handlers for controlled service restarts, and ensures idempotent execution.
+The structure reflects production-style DevOps automation rather than ad-hoc scripting.
+
+---
 
 ## Author
 Rahul Rana 
 Aspiring DevOps / Cloud Engineer
+
+---
+
+## License
+This project is licensed under the MIT License.
